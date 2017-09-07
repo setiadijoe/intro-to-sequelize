@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Student</title>
+</head>
+<body>
+        <form action="/student/edit/<%=data.id%>" method="post">
+            <table>
+            <tr>First Name</tr>
+            <tr><input type="text" name="first_name" value="<%=data.first_name%>"></tr><br>
+            <tr>Last Name</tr>
+            <tr><input type="text" name="last_name" value="<%=data.last_name%>" ></tr><br>
+            <tr>E-mail</tr>
+            <tr><input type="email" name="email" value="<%=data.email%>"></tr><br>
+            <tr><input type="submit" value="Submit"></tr>
+            </table>
+        </form>
+       
+</body>
+</html>
