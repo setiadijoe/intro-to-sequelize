@@ -37,7 +37,6 @@ router.get('/edit/:id', (req, res)=> {
         }
     })
     .then(rows =>{
-        // res.send(rows)
         res.render('editstudent', {data:rows[0]})
     }) 
     .catch(err =>{
@@ -57,7 +56,6 @@ router.post('/edit/:id', (req, res)=>{
     })
     .then((r)=>{
         res.redirect('/student')
-        // res.send(row)
     })
     .catch(err=>{
         res.send(err)
@@ -70,6 +68,7 @@ router.get('/delete/:id', (req, res)=>{
             id: req.params.id
         }
     })
+
     .then(()=>{
         res.redirect('/student')
     })

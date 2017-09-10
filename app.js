@@ -14,7 +14,7 @@ app.use(bodyparser.json())
 app.use('/',index)
 app.use('/teacher',teacher)
 app.use('/subject',subject)
-app.use('/student', student)
+app.use('/student',student)
 
 app.listen(3000,()=>{
     console.log(`Hello I'm on 3000`);

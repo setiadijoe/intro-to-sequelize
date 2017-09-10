@@ -29,7 +29,9 @@
                 <td><%= row.email%></td>
                 <td>
                      <a href="/student/edit/<%=row.id%>">Edit</a>
-                     <a href="/student/delete/<%= row.id%>">Delete</a>
+                     <a onclick="javascript:return confirm('Are you sure want to delete this student?')" href="/student/delete/<%= row.id%>">Delete</a>
+
+
                 </td>     
             </tr>
             <% })%>
