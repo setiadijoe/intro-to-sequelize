@@ -5,7 +5,7 @@ const Models = require('../models')
 router.get('/', (req, res)=>{
     Models.Student.findAll()
     .then(row=>{
-        res.render('student', {data:row})
+        res.render('student', {data:row, pageTitle: 'Student Data' ,head:'Student Data'})
     })
     .catch(err=>{
         res.send(err)

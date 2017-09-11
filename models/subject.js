@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   Subject.associate = function (models) {
     // Teacher.belongsTo(models.Subject);
-    Subject.hasMany(models.Teacher);     
+    Subject.hasMany(models.Student);     
   };
   return Subject;
 };

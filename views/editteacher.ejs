@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Teacher</title>
-</head>
+<%- include partial/head%>
 <body>
-    <h1>EDIT TEACHER</h1>
-    <hr>
-    <a href="/teachers">Show All Teachers</a>
+
+    <a href="/teacher">Show All Teachers</a>
     <br><br>
-    <form class="" action="/teachers/edit/<%= teacher[0].id%>" method="POST">
+    <form class="" action="/teacher/edit/<%= teacher[0].id%>" method="POST">
       <p>First Name
         <br>
         <input type="text" name="first_name" value="<%= teacher[0].first_name%>" placeholder="first_name">

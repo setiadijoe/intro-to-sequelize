@@ -5,13 +5,21 @@ module.exports = function(sequelize, DataTypes) {
     last_name: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
-        isEmail:true
-      },
-      unique :{
-          args: true,
-          msg: 'Email address already in use!'
+        isEmail: true,
+        isUnique: function(value, next) {
+          Student.find({
+            where: {email: value},
+            attributes: ['id']
+          })
+            .done(function(error,user) {
+              if (error) 
+                return next(error)
+              if (user) 
+                return next('Email address already in use!')
+              next()
+            })
+        }
       }
     }
   }, {
@@ -21,5 +29,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     }
   });
+  Student.prototype.getFullName = (first_name, last_name)=> {
+    return first_name+' '+last_name
+  }
+  Student.associate = function (models) {
+    Student.hasMany(models.Subject);  
+};
   return Student;
 };

@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Subject</title>
 </head>
+<%- include partial/style %> 
 <body>
         <h1>Subjects List</h1>
-        <a href="/">Back to Home</a>
+        <%- include partial/link %>         
         <table border="1">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Subject Name</th>
+                    <th>Teachers Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +24,16 @@
              
                     <td><%= row.id%></td>
                     <td><%= row.subject_name%></td>
+                    <td>
+                        <% if(row.Teachers.length > 0) { %>
+                          <% row.Teachers.forEach((teacher, index) => { %>
+                            <%= (index+1) + '. ' + teacher.first_name + ' ' + teacher.last_name%>
+                            <br></br>
+                          <% }) %>
+                          <% } else { %>
+                            -
+                        <% } %>
+                      </td>
                   
                 </tr>
                 <% })%>
