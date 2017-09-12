@@ -10,8 +10,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Subject.associate = function (models) {
-    // Teacher.belongsTo(models.Subject);
-    Subject.hasMany(models.Student);     
+    Subject.hasMany(models.Teacher)
+    Subject.belongsToMany(models.Student, {
+      through: 'Junction'
+      
+    })      
   };
   return Subject;
 };

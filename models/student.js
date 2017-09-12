@@ -33,7 +33,11 @@ module.exports = function(sequelize, DataTypes) {
     return first_name+' '+last_name
   }
   Student.associate = function (models) {
-    Student.hasMany(models.Subject);  
+    // Student.hasMany(models.Subject);
+    Student.belongsToMany(models.Subject, {
+      through: 'Junction'
+      
+    })  
 };
   return Student;
 };
