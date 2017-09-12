@@ -13,6 +13,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Action</th>
+                <th>Option</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +23,10 @@
                 <td><%= row.first_name%></td>
                 <td><%= row.last_name%></td>
                 <td><%= row.email%></td>
+                <td><a href="/student/<%=row.id%>/addsubject">Add Subject</a></td>
                 <td>
                      <a href="/student/edit/<%=row.id%>">Edit</a>
                      <a onclick="javascript:return confirm('Are you sure want to delete this student?')" href="/student/delete/<%= row.id%>">Delete</a>
-
-
                 </td>     
             </tr>
             <% })%>

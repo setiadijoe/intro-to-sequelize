@@ -71,6 +71,7 @@ router.post('/edit/:id',(req, res) => {
         where: {id: `${req.params.id}`}
     })
     .then(row => {
+        // res.send(row)
         res.redirect('/teacher')
     })
     .catch(err => {

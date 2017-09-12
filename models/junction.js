@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Junction.associate = function (models) {
-    Junction.belongsTo(models.Subject)
-    Junction.belongsTo(models.Student) 
+    Junction.belongsTo(models.Subject);
+    Junction.belongsTo(models.Student);
   }
   return Junction;
 };

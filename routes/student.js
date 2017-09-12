@@ -76,4 +76,37 @@ router.get('/delete/:id', (req, res)=>{
         res.send(err)
     })
 })
+
+// routing untuk dapatkan subjek di student
+
+router.get('/:id/addsubject', (req,res) => {
+    Models.Student.findAll({
+        where: {
+            id: `${req.params.id}`
+        }
+    })
+    .then(student => {
+        Models.Subject.findAll()
+        .then(subjects => {
+            res.render('studentsubject', {data_student: student, data_subjects: subjects})
+        })
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
+router.post('/:id/addsubject', (req,res) => {
+    Models.Junction.create({
+        studentId: req.params.id,
+        subjectId: req.body.subjectId
+    })
+    .then(student => {
+        res.send(student)
+        // res.redirect('student')
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
 module.exports = router
